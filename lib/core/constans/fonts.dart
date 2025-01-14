@@ -19,4 +19,11 @@ class AppFonts {
     color: AppColors.splashText,
     fontFamily: 'Inter',
   );
+
+  static const TextStyle secondaryText = TextStyle(
+    fontSize: 13,
+    color: AppColors.splashText,
+    fontFamily: 'Inter',
+    fontStyle: FontStyle.normal,
+  );
 }
