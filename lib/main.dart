@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PODKES',
-      home: OnboardingScreen(),
+      home: HomeScreen(),
       routes: {
         '/homePage': (context) => const HomeScreen(),
         '/onboardingPage': (context) => const OnboardingScreen(),

@@ -8,6 +8,12 @@ class AppFonts {
     fontFamily: 'Poppins',
   );
 
+  static const TextStyle subtitle = TextStyle(
+    fontSize: 18,
+    color: AppColors.textPrimary,
+    fontFamily: 'Poppins',
+  );
+
   static const TextStyle splashText = TextStyle(
     fontSize: 13,
     color: AppColors.splashText,

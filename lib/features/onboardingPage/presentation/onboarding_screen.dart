@@ -40,7 +40,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
           /// Slider
           Row(
-            mainAxisAlignment: ü,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
                 onBoardData.length,
                 (index) => Padding(
