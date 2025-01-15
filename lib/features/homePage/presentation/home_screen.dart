@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:music_player/core/constans/colors.dart';
+import 'package:music_player/core/helpers/responsive_helper.dart';
 import 'package:music_player/features/discoverPage/presentation/discover_screen.dart';
 import 'package:music_player/features/library/presentation/library_screen.dart';
 import 'package:music_player/features/profilePage/presentation/profile_screen.dart';
@@ -29,6 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final responsive = ResponsiveHelper(context);
     return Scaffold(
       backgroundColor: AppColors.primary,
       body: IndexedStack(
@@ -36,7 +38,6 @@ class _HomeScreenState extends State<HomeScreen> {
         children: _pages,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        
         backgroundColor: AppColors.secondary,
         selectedItemColor: AppColors.textPrimary,
         unselectedItemColor: AppColors.textSecondary,
@@ -49,8 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
               color: _selectedIndex == 0
                   ? AppColors.textPrimary
                   : AppColors.textSecondary,
-              height: 24,
-              width: 24,
+              height: responsive.h(24),
+              width: responsive.w(24),
             ),
             label: 'Discover',
           ),
@@ -60,8 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
               color: _selectedIndex == 1
                   ? AppColors.textPrimary
                   : AppColors.textSecondary,
-              height: 24,
-              width: 24,
+              height: responsive.h(24),
+              width: responsive.w(24),
             ),
             label: 'Library',
           ),
@@ -71,8 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
               color: _selectedIndex == 2
                   ? AppColors.textPrimary
                   : AppColors.textSecondary,
-              height: 24,
-              width: 24,
+              height: responsive.h(24),
+              width: responsive.w(24),
             ),
             label: 'Profile',
           ),
