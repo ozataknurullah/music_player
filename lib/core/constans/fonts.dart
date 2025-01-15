@@ -40,4 +40,25 @@ class AppFonts {
     fontFamily: 'Inter',
     fontWeight: FontWeight.w600,
   );
+
+  static const TextStyle trendingText = TextStyle(
+    fontSize: 24,
+    color: AppColors.textPrimary,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w700,
+  );
+
+  static const TextStyle trendsName = TextStyle(
+    fontSize: 13,
+    color: AppColors.textPrimary,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w700,
+  );
+
+  static const TextStyle trendsSinger = TextStyle(
+    fontSize: 10,
+    color: AppColors.textPrimary,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w500,
+  );
 }

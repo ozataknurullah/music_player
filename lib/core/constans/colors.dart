@@ -8,4 +8,9 @@ class AppColors {
   static const Color textSecondary = Color(0xFFBDBDBD);
   static const Color unselectedText = Color(0xFFBDBDBD);
   static const Color splashText = Color(0xFFC4C4C4);
+
+  static const Color trend1 = Color(0xFFB548C6);
+  static const Color trend2 = Color(0xFF32A7E2);
+  static const Color trend3 = Color(0xFFEC663C);
+  static const Color trend4 = Color(0xFFFFBF47);
 }
