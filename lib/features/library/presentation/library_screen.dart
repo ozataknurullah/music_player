@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_player/core/constans/colors.dart';
 
 class LibraryScreen extends StatefulWidget {
   const LibraryScreen({super.key});
@@ -10,6 +11,8 @@ class LibraryScreen extends StatefulWidget {
 class _LibraryScreenState extends State<LibraryScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      backgroundColor: AppColors.primary,
+    );
   }
 }

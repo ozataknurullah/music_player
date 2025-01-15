@@ -36,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: _pages,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        
         backgroundColor: AppColors.secondary,
         selectedItemColor: AppColors.textPrimary,
         unselectedItemColor: AppColors.textSecondary,

@@ -26,4 +26,18 @@ class AppFonts {
     fontFamily: 'Inter',
     fontStyle: FontStyle.normal,
   );
+
+  static const TextStyle categoryPrimaryText = TextStyle(
+    fontSize: 13,
+    color: AppColors.textPrimary,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w600,
+  );
+
+  static const TextStyle categorySecondaryText = TextStyle(
+    fontSize: 13,
+    color: AppColors.unselectedText,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w600,
+  );
 }
