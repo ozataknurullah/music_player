@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:music_player/core/constans/colors.dart';
 
@@ -13,24 +12,30 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   double _scale = 0.9;
 
+  @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 2), () {
+
+    /// animation of the splash screen
+    Timer(Duration(milliseconds: 300), () {
       setState(() {
-        _scale = 1.3;
+        _scale = 1.2;
       });
     });
+
+    /// Continue after the animation
     Timer(
-      Duration(seconds: 2),
+      Duration(seconds: 3),
       () => Navigator.pushNamed(context, '/onboardingPage'),
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: AppColors.primary,
-        body: Center(
-            child: Column(
+      backgroundColor: AppColors.primary,
+      body: Center(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AnimatedScale(
@@ -44,11 +49,13 @@ class _SplashScreenState extends State<SplashScreen> {
                   height: 100,
                 ),
               ),
-            ), //the app logo
+            ),
             SizedBox(
               height: 20,
             ),
           ],
-        )));
+        ),
+      ),
+    );
   }
 }
