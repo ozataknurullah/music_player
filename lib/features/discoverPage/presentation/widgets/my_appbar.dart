@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:music_player/core/constans/colors.dart';
 import 'package:music_player/core/constans/fonts.dart';
+import 'package:music_player/core/helpers/responsive_helper.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppBar({
@@ -13,16 +14,17 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
   @override
   Widget build(BuildContext context) {
+    final resposive = ResponsiveHelper(context);
     return AppBar(
       elevation: 0,
       leading: GestureDetector(
         onTap: () {},
         child: Container(
-          margin: const EdgeInsets.all(15),
+          margin: EdgeInsets.all(resposive.h(15)),
           child: SvgPicture.asset(
             'assets/icons/Menu.svg',
-            height: 24,
-            width: 24,
+            height: resposive.h(24),
+            width: resposive.h(24),
           ),
         ),
       ),
@@ -30,11 +32,11 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         GestureDetector(
           onTap: () {},
           child: Container(
-              margin: const EdgeInsets.all(15),
+              margin: EdgeInsets.all(resposive.h(15)),
               child: SvgPicture.asset(
                 'assets/icons/Notification.svg',
-                height: 24,
-                width: 24,
+                height: resposive.h(24),
+                width: resposive.h(24),
               )),
         )
       ],

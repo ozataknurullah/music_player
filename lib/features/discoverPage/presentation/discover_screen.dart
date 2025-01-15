@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/core/constans/colors.dart';
 import 'package:music_player/core/constans/fonts.dart';
+import 'package:music_player/core/helpers/responsive_helper.dart';
 import 'package:music_player/features/discoverPage/presentation/widgets/my_appbar.dart';
 import 'package:music_player/features/discoverPage/presentation/widgets/my_search_field.dart';
 import 'package:music_player/features/playingPage/presentation/playing_screen.dart';
@@ -42,6 +43,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final responsive = ResponsiveHelper(context);
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: const MyAppBar(),
@@ -49,16 +51,17 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const MySearchField(),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: responsive.h(20),
           ),
           _categoriesSection(),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: responsive.h(20),
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(left: 25, right: 25),
+              padding: EdgeInsets.only(
+                  left: responsive.w(20), right: responsive.w(20)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -67,14 +70,14 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     style: AppFonts.interBold24,
                   ),
                   SizedBox(
-                    height: 20,
+                    height: responsive.h(20),
                   ),
                   Expanded(
                     child: GridView.builder(
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
+                        crossAxisSpacing: responsive.w(10),
+                        mainAxisSpacing: responsive.h(10),
                         childAspectRatio: 3 / 4,
                       ),
                       shrinkWrap: true,
@@ -95,7 +98,8 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                           child: Container(
                             decoration: BoxDecoration(
                               color: AppColors.primary,
-                              borderRadius: BorderRadius.circular(5),
+                              borderRadius:
+                                  BorderRadius.circular(responsive.h(5)),
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,7 +108,9 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                                   tag: 'trend-$index',
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(5),
+                                      borderRadius: BorderRadius.circular(
+                                        responsive.h(5),
+                                      ),
                                       color: trends[index].color,
                                     ),
                                     height: 170,
@@ -121,15 +127,17 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
 
                                 ///Song name
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 8),
+                                  padding:
+                                      EdgeInsets.only(top: responsive.h(8)),
                                   child: Text(trends[index].name!,
                                       style: AppFonts.interBold13),
                                 ),
 
                                 ///Singer name
                                 Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 2, bottom: 2),
+                                  padding: EdgeInsets.only(
+                                      top: responsive.h(2),
+                                      bottom: responsive.h(2)),
                                   child: Text(trends[index].singer!,
                                       style: AppFonts.interMedium10),
                                 ),
@@ -150,14 +158,15 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
   }
 
   Padding _categoriesSection() {
+    final responsive = ResponsiveHelper(context);
     return Padding(
-      padding: const EdgeInsets.only(left: 20),
+      padding: EdgeInsets.only(left: responsive.w(20)),
       child: Container(
-        height: 36,
+        height: responsive.h(35),
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           separatorBuilder: (context, index) => SizedBox(
-            width: 15,
+            width: responsive.w(10),
           ),
           itemCount: categories.length,
           itemBuilder: (context, index) {
@@ -165,9 +174,9 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
             return GestureDetector(
               onTap: () => _onCategoryTap(index),
               child: Container(
-                width: 100,
+                width: responsive.w(100),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(responsive.h(20)),
                   color: categories[index].boxColor,
                 ),
                 child: Center(

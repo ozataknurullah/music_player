@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/core/constans/colors.dart';
 import 'package:music_player/core/constans/fonts.dart';
+import 'package:music_player/core/helpers/responsive_helper.dart';
 
 class MySearchField extends StatelessWidget {
   const MySearchField({
@@ -9,19 +10,23 @@ class MySearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final responsive = ResponsiveHelper(context);
     return Container(
-      margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
+      margin: EdgeInsets.only(
+          top: responsive.h(20),
+          left: responsive.w(20),
+          right: responsive.w(20)),
       child: TextField(
         decoration: InputDecoration(
           filled: true,
           fillColor: AppColors.secondary,
-          contentPadding: EdgeInsets.all(15),
+          contentPadding: EdgeInsets.all(responsive.h(15)),
           hintText: 'Search',
           hintStyle: AppFonts.secondaryText,
           suffixIcon: Icon(Icons.search),
           suffixIconColor: AppColors.textSecondary,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(responsive.h(12)),
             borderSide: BorderSide.none,
           ),
         ),
