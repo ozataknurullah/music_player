@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:music_player/core/constans/colors.dart';
+import 'package:music_player/core/helpers/responsive_helper.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -32,6 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final responsive = ResponsiveHelper(context);
     return Scaffold(
       backgroundColor: AppColors.primary,
       body: Center(
@@ -43,11 +45,9 @@ class _SplashScreenState extends State<SplashScreen> {
               curve: Curves.easeInOut,
               duration: Duration(seconds: 2),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
-                  'assets/images/logo.png',
-                  height: 100,
-                ),
+                borderRadius: BorderRadius.circular(responsive.w(20)),
+                child: Image.asset('assets/images/logo.png',
+                    height: responsive.h(100)),
               ),
             ),
             SizedBox(

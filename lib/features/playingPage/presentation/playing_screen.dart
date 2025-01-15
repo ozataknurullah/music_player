@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_player/core/constans/colors.dart';
 import 'package:music_player/core/constans/fonts.dart';
+import 'package:music_player/core/helpers/responsive_helper.dart';
 import 'package:music_player/features/playingPage/presentation/widgets/my_appbar.dart';
 import 'package:music_player/models/trends_model.dart';
 
@@ -23,6 +24,7 @@ class _PlayingScreenState extends State<PlayingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final responsive = ResponsiveHelper(context);
     return Scaffold(
       backgroundColor: AppColors.primary,
       appBar: MyAppBar(),
@@ -30,10 +32,10 @@ class _PlayingScreenState extends State<PlayingScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            height: 40,
+            height: responsive.h(40),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
+            padding: EdgeInsets.symmetric(horizontal: responsive.w(40)),
             child: Container(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,13 +44,13 @@ class _PlayingScreenState extends State<PlayingScreen> {
                     tag: 'trend-${widget.index}',
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
+                        borderRadius: BorderRadius.circular(responsive.w(5)),
                         color: widget.trend.color,
                       ),
-                      height: 330,
-                      width: 330,
+                      height: responsive.h(330),
+                      width: responsive.w(330),
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(responsive.w(10)),
                         child: Image.asset(
                           widget.trend.imagePath!,
                           fit: BoxFit.fitWidth,
@@ -58,7 +60,7 @@ class _PlayingScreenState extends State<PlayingScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: responsive.h(20),
                   ),
 
                   /// song Name
@@ -67,7 +69,7 @@ class _PlayingScreenState extends State<PlayingScreen> {
                     style: AppFonts.interBold20,
                   ),
                   SizedBox(
-                    height: 10,
+                    height: responsive.h(10),
                   ),
 
                   /// Artist Name
@@ -76,13 +78,13 @@ class _PlayingScreenState extends State<PlayingScreen> {
                     style: AppFonts.interMedium14opacity,
                   ),
                   SizedBox(
-                    height: 40,
+                    height: responsive.h(20),
                   ),
                   Column(
                     children: [
                       Image.asset('assets/images/wave.png'),
                       SizedBox(
-                        height: 20,
+                        height: responsive.h(20),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -104,7 +106,7 @@ class _PlayingScreenState extends State<PlayingScreen> {
             ),
           ),
           SizedBox(
-            height: 40,
+            height: responsive.h(20),
           ),
 
           ///Control Buttons
@@ -118,7 +120,8 @@ class _PlayingScreenState extends State<PlayingScreen> {
 
               /// Play/Pause button
               Container(
-                margin: const EdgeInsets.only(right: 20, left: 20),
+                margin: EdgeInsets.only(
+                    right: responsive.w(20), left: responsive.w(20)),
                 child: Image.asset('assets/icons/Play.png'),
               ),
 
