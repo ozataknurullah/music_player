@@ -41,23 +41,51 @@ class AppFonts {
     fontWeight: FontWeight.w600,
   );
 
-  static const TextStyle trendingText = TextStyle(
+  static const TextStyle interBold24 = TextStyle(
     fontSize: 24,
     color: AppColors.textPrimary,
     fontFamily: 'Inter',
     fontWeight: FontWeight.w700,
   );
 
-  static const TextStyle trendsName = TextStyle(
+  static const TextStyle interBold13 = TextStyle(
     fontSize: 13,
     color: AppColors.textPrimary,
     fontFamily: 'Inter',
     fontWeight: FontWeight.w700,
   );
 
-  static const TextStyle trendsSinger = TextStyle(
+  static const TextStyle interMedium10 = TextStyle(
     fontSize: 10,
     color: AppColors.textPrimary,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w500,
+  );
+
+  static const TextStyle interMedium16 = TextStyle(
+    fontSize: 16,
+    color: AppColors.textPrimary,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w500,
+  );
+
+  static const TextStyle interBold20 = TextStyle(
+    fontSize: 20,
+    color: AppColors.textPrimary,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w700,
+  );
+
+  static const TextStyle interMedium14 = TextStyle(
+    fontSize: 14,
+    color: AppColors.textPrimary,
+    fontFamily: 'Inter',
+    fontWeight: FontWeight.w500,
+  );
+
+  static const TextStyle interMedium14opacity = TextStyle(
+    fontSize: 14,
+    color: AppColors.textSecondary,
     fontFamily: 'Inter',
     fontWeight: FontWeight.w500,
   );

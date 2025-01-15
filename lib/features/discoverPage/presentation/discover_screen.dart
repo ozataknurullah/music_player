@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:music_player/core/constans/colors.dart';
 import 'package:music_player/core/constans/fonts.dart';
-
 import 'package:music_player/features/discoverPage/presentation/widgets/my_appbar.dart';
 import 'package:music_player/features/discoverPage/presentation/widgets/my_search_field.dart';
+import 'package:music_player/features/playingPage/presentation/playing_screen.dart';
 import 'package:music_player/models/category_model.dart';
 import 'package:music_player/models/trends_model.dart';
 
@@ -65,7 +64,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                 children: [
                   Text(
                     "Trending",
-                    style: AppFonts.trendingText,
+                    style: AppFonts.interBold24,
                   ),
                   SizedBox(
                     height: 20,
@@ -81,45 +80,61 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                       shrinkWrap: true,
                       itemCount: trends.length,
                       itemBuilder: (context, index) {
-                        return Container(
-                          decoration: BoxDecoration(
-                            color: AppColors.primary,
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(5),
-                                  color: trends[index].color,
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PlayingScreen(
+                                  trend: trends[index],
+                                  index: index,
                                 ),
-                                height: 165,
-                                width: 170,
-                                child: ClipRRect(
-                                  child: Image.asset(
-                                    trends[index].imagePath!,
-                                    fit: BoxFit.scaleDown,
-                                    alignment: Alignment.bottomCenter,
+                              ),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: AppColors.primary,
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Hero(
+                                  tag: 'trend-$index',
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: trends[index].color,
+                                    ),
+                                    height: 170,
+                                    width: 170,
+                                    child: ClipRRect(
+                                      child: Image.asset(
+                                        trends[index].imagePath!,
+                                        fit: BoxFit.scaleDown,
+                                        alignment: Alignment.bottomCenter,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
 
-                              ///Song name
-                              Padding(
-                                padding: const EdgeInsets.only(top: 8),
-                                child: Text(trends[index].name!,
-                                    style: AppFonts.trendsName),
-                              ),
+                                ///Song name
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 8),
+                                  child: Text(trends[index].name!,
+                                      style: AppFonts.interBold13),
+                                ),
 
-                              ///Singer name
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 2, bottom: 4),
-                                child: Text(trends[index].singer!,
-                                    style: AppFonts.trendsSinger),
-                              ),
-                            ],
+                                ///Singer name
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 2, bottom: 2),
+                                  child: Text(trends[index].singer!,
+                                      style: AppFonts.interMedium10),
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       },
